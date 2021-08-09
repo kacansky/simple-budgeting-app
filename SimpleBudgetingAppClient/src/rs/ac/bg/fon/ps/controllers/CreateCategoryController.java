@@ -80,6 +80,7 @@ public class CreateCategoryController {
                     }
                 }
                 parent.setCategories(categoriesForView);
+                JOptionPane.showMessageDialog(frmCreateCategory, "Changes successfully saved");
                 frmCreateCategory.dispose();
                 
             }

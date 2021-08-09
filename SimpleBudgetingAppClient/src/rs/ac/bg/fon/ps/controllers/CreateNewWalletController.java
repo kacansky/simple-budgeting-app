@@ -9,13 +9,10 @@ package rs.ac.bg.fon.ps.controllers;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
-import rs.ac.bg.fon.ps.communication.Communication;
 import rs.ac.bg.fon.ps.communication.CommunicationController;
 import rs.ac.bg.fon.ps.constants.Constants;
 import rs.ac.bg.fon.ps.coordinator.MainCoordinator;
@@ -89,8 +86,10 @@ public class CreateNewWalletController {
                     validateForm();
                 } catch (Exception ex) {
                     JOptionPane.showMessageDialog(frmCreateNewWallet, "Could not create wallet.");
+                    return;
                 }
                 addNewWallet();
+                JOptionPane.showMessageDialog(frmCreateNewWallet, "Wallet successfully created.");
                 frmCreateNewWallet.dispose();
                 }
 

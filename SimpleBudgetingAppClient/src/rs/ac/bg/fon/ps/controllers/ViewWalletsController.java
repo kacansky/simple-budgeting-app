@@ -43,6 +43,7 @@ public class ViewWalletsController {
             addActionListener();
         } catch (Exception ex) {
             Logger.getLogger(ViewWalletsController.class.getName()).log(Level.SEVERE, null, ex);
+            frmViewWallets.dispose();
         }
     }
 
@@ -93,6 +94,7 @@ public class ViewWalletsController {
                         "Are you sure you want to delete this wallet? All transactions will be lost","WARNING",
                         JOptionPane.YES_NO_OPTION)==JOptionPane.YES_OPTION){
                     deleteWallet();
+                    JOptionPane.showMessageDialog(frmViewWallets, "Wallet successfully deleted.");
                 }
                 else {
                     return;
@@ -128,7 +130,7 @@ public class ViewWalletsController {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
                 if(frmViewWallets.getTblWallets().getSelectedRow()==-1) {
-                    JOptionPane.showMessageDialog(frmViewWallets, "Please select a wallet to delete.");
+                    JOptionPane.showMessageDialog(frmViewWallets, "Please select a wallet to open.");
                     return;
                 }
                 openSelectedWallet();

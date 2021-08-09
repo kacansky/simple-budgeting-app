@@ -73,14 +73,16 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="103" groupAlignment="1" attributes="0">
                       <Component id="lblClock" min="-2" max="-2" attributes="0"/>
-                      <Group type="103" alignment="1" groupAlignment="0" attributes="0">
-                          <Component id="cbFilter" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="rbDateSort" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel5" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="rbAmountSort" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Group type="102" alignment="1" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="rbDateSort" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="rbAmountSort" alignment="0" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <Component id="CmbCategoryFilter" alignment="0" min="-2" pref="177" max="-2" attributes="0"/>
+                  <Component id="cbFilter" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace pref="42" max="32767" attributes="0"/>
           </Group>
@@ -126,9 +128,7 @@
                       <Component id="cbFilter" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="CmbCategoryFilter" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
-                      <Component id="jLabel5" min="-2" pref="13" max="-2" attributes="0"/>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
                       <Component id="rbDateSort" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="rbAmountSort" min="-2" max="-2" attributes="0"/>
@@ -287,11 +287,6 @@
     <Component class="javax.swing.JRadioButton" name="rbDateSort">
       <Properties>
         <Property name="text" type="java.lang.String" value="Sort by date (newest first)"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="jLabel5">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Sort transactions by date:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JRadioButton" name="rbAmountSort">

@@ -100,6 +100,9 @@ public class Communication {
 
             ServerResponse serverResponse = (ServerResponse) this.receiver.receive();
             transactions = (ArrayList<Transaction>) serverResponse.getResult();
+             for (Transaction transaction : transactions) {
+                 System.out.println(transaction);
+             }
             if (serverResponse.getException() != null) {
                 throw serverResponse.getException();
             }
@@ -117,9 +120,12 @@ public class Communication {
             clientRequest.setOperation(Operation.GET_CATEGORIES_FOR_USER);
             clientRequest.setArgument(userid);
             this.sender.send(clientRequest);
-
+            
             ServerResponse serverResponse = (ServerResponse) this.receiver.receive();
             categories = (ArrayList<Category>) serverResponse.getResult();
+            if(categories==null) {
+                System.out.println("Received NULL for some reason???");
+            }
             if (serverResponse.getException() != null) {
                 throw serverResponse.getException();
             }

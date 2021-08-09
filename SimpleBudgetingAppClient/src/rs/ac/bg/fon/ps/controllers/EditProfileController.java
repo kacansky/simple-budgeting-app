@@ -62,6 +62,7 @@ public class EditProfileController {
                     validateForm();
                 } catch (Exception ex) {
                     JOptionPane.showMessageDialog(frmEditProfile, "Cannot update account settings.");
+                    return;
                 }
                 updateUser();
                 frmEditProfile.dispose();
@@ -93,6 +94,7 @@ public class EditProfileController {
                     user.setFirstName(first_name);
                     user.setLastName(last_name);
                     Communication.getInstance().updateUser(user);
+                    JOptionPane.showMessageDialog(frmEditProfile, "User profile sucessfully updated.");
                 } catch (Exception ex) {
                     Logger.getLogger(EditProfileController.class.getName()).log(Level.SEVERE, null, ex);
                 }

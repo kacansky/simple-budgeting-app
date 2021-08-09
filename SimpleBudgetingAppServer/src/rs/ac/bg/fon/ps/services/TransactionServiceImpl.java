@@ -10,7 +10,6 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import rs.ac.bg.fon.ps.domain.Transaction;
-import rs.ac.bg.fon.ps.domain.Wallet;
 import rs.ac.bg.fon.ps.operations.Transaction.DeleteTransaction;
 import rs.ac.bg.fon.ps.operations.Transaction.GetAllTransactions;
 import rs.ac.bg.fon.ps.operations.Transaction.InsertTransaction;

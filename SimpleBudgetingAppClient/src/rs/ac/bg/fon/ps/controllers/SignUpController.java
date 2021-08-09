@@ -49,9 +49,11 @@ public class SignUpController {
                     validateForm();
                 } catch (Exception ex) {
                     JOptionPane.showMessageDialog(frmSignUp, "Cannot create account.");
+                    return;
                 }
                 signUpUser();
                 resetForm();
+                frmSignUp.dispose();
             }
 
             private void signUpUser() {
@@ -64,7 +66,7 @@ public class SignUpController {
                     Communication.getInstance().saveNewUser(user);
                     LoginFormController lic = new LoginFormController(new FrmLogin());
                     lic.openForm();
-                    frmSignUp.setVisible(false);
+                    JOptionPane.showMessageDialog(frmSignUp, "Account successfully created.");
                 } catch (Exception ex) {
                     JOptionPane.showMessageDialog(frmSignUp, "Cannot save user.\n"+ex.getMessage());
                 }

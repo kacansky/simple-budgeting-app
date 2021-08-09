@@ -58,10 +58,18 @@ public class HandlingClientsRequests extends Thread {
                         case Operation.GET_CATEGORIES_FOR_USER:
                             Long userid = (Long) clientRequest.getArgument();
                             List<Category> categories = Controller.getInstance().getCategoriesForUser(userid);
+                            System.out.println("GET CATEGORIES FOR USER: ");
+                            for (Category category : categories) {
+                                System.out.println(category);
+                            }
                             serverResponse.setResult(categories);
                             break;
                         case Operation.GET_ALL_CURRENCIES:
                             List<Currency> currencies = Controller.getInstance().getAllCurrencies();
+                            System.out.println("GET ALL CURRENCIES:");
+                            for (Currency currency : currencies) {
+                                System.out.println(currency);
+                            }
                             serverResponse.setResult(currencies);
                             break;
                         case Operation.SAVE_NEW_USER:
@@ -81,11 +89,19 @@ public class HandlingClientsRequests extends Thread {
                         case Operation.GET_ALL_TRANSACTIONS:
                             Long walletid = (Long) clientRequest.getArgument();
                             List<Transaction> transactions = Controller.getInstance().getAllTransactions(walletid);
+                            System.out.println("GET ALL TRANSACTIONS:");
+                            for (Transaction transaction : transactions) {
+                                System.out.println(transaction);
+                            }
                             serverResponse.setResult(transactions);
                             break;
                         case Operation.GET_ALL_WALLETS:
                             User userArg = (User) clientRequest.getArgument();
                             List<Wallet> wallets = Controller.getInstance().getAllWallets(userArg);
+                            System.out.println("GET ALL WALLETS:");
+                            for (Wallet wallet : wallets) {
+                                System.out.println(wallet);
+                            }
                             serverResponse.setResult(wallets);
                             break;
                         case Operation.DELETE_WALLET:
@@ -119,10 +135,12 @@ public class HandlingClientsRequests extends Thread {
                         case Operation.DELETE_CATEGORIES:
                             ArrayList<Category> categoriesToDelete = (ArrayList<Category>) clientRequest.getArgument();
                             Controller.getInstance().deleteCategories(categoriesToDelete);
+                            break;
 
                     }
                 } catch (Exception e) {
                     serverResponse.setException(e);
+                    System.out.println("CAUGHT EXCEPTION");
                 }
                 this.sender.send(serverResponse);
             } catch (Exception ex) {

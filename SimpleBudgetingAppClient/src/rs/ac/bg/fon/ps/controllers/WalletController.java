@@ -273,6 +273,7 @@ public class WalletController {
                 try {
                     if(!deletedTransactions.isEmpty()){
                         CommunicationController.getInstance().deleteTransactions(deletedTransactions);
+                        deletedTransactions = new ArrayList<>();
                     }
                     if(!addedTransactions.isEmpty()){
                         CommunicationController.getInstance().addTransactions(addedTransactions);

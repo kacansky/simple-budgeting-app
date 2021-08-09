@@ -46,6 +46,7 @@ public class ChangePasswordController {
                     validateForm();
                 } catch (Exception ex) {
                     JOptionPane.showMessageDialog(frmChangePassword, ex.getMessage());
+                    return;
                 }
                 updatePassword();
                 frmChangePassword.dispose();
@@ -54,16 +55,16 @@ public class ChangePasswordController {
             private void validateForm() throws Exception {
                 if(frmChangePassword.getTxtCurrentPassword().getText().isEmpty() || frmChangePassword.getTxtNewPassword().getText().isEmpty() || frmChangePassword.getTxtNewPasswordRepeat().getText().isEmpty()){
                     frmChangePassword.getLblError().setText("Some fields are empty");
-                    throw new Exception("Some fields are empty.");
+                    throw new Exception("Cannot change password. Some fields are empty.");
                 }
                 if(!frmChangePassword.getTxtCurrentPassword().getText().equals(user.getPassword())) {
                     frmChangePassword.getLblError().setText("That is not your current password");
-                    throw new Exception("That is not your current password.");
+                    throw new Exception("Cannot change password. That is not your current password.");
                 }
                 else {
                     if(!frmChangePassword.getTxtNewPassword().getText().equals(frmChangePassword.getTxtNewPasswordRepeat().getText())) {
                         frmChangePassword.getLblError().setText("New password and repeated new password do not match");
-                        throw new Exception("New password and repeated new password do not match.");
+                        throw new Exception("Cannot change password. New password and repeated new password do not match.");
                     }
                 }
 
@@ -73,6 +74,7 @@ public class ChangePasswordController {
                 try {
                     user.setPassword(frmChangePassword.getTxtNewPassword().getText());
                     Communication.getInstance().updateUser(user);
+                    JOptionPane.showMessageDialog(frmChangePassword, "Password successfully changed");
                 } catch (Exception ex) {
                     Logger.getLogger(ChangePasswordController.class.getName()).log(Level.SEVERE, null, ex);
                 }

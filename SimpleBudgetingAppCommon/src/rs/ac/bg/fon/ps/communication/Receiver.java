@@ -23,6 +23,9 @@ public class Receiver implements Serializable{
 
     public Object receive() throws Exception{
         try {
+            if(socket.isClosed()) {
+                System.out.println("Socket closed bro");
+            }
             ObjectInputStream in = new ObjectInputStream(socket.getInputStream());
             return in.readObject();
         } catch (Exception e) {

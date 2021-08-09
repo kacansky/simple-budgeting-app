@@ -1,4 +1,4 @@
-/*
+    /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
@@ -53,10 +53,11 @@ public class Controller {
         }
         throw new Exception("This user doesn't exist.");
     }
-
-    public void createUser(User userToAdd) throws Exception {
-        ServiceRegistry.getUserService().createUser(userToAdd);
+    
+    public void saveNewUser(User user) throws Exception {
+        ServiceRegistry.getUserService().createUser(user);
     }
+
 
     public void createWallet(Wallet walletToAdd) throws Exception {
         ServiceRegistry.getWalletService().createWallet(walletToAdd);
@@ -116,10 +117,6 @@ public class Controller {
             return currencies;
         }
         throw new Exception("Currencies cannot be loaded");
-    }
-
-    public void saveNewUser(User user) throws Exception {
-        ServiceRegistry.getUserService().createUser(user);
     }
 
     public void updateUser(User userToUpdate) throws Exception {

@@ -8,12 +8,17 @@ package rs.ac.bg.fon.ps.controllers;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import rs.ac.bg.fon.ps.communication.Communication;
 import rs.ac.bg.fon.ps.constants.Constants;
 import rs.ac.bg.fon.ps.coordinator.MainCoordinator;
 import rs.ac.bg.fon.ps.domain.User;
 import rs.ac.bg.fon.ps.forms.FrmMain;
 
+/**
+ *
+ * @author Dunja
+ */
 
 public class MainController {
     
@@ -77,9 +82,11 @@ public class MainController {
             
             private void logOut(ActionEvent e) {
                 try {
+                    JOptionPane.showMessageDialog(frmMain,"Goodbye!", "Logging out...", JOptionPane.INFORMATION_MESSAGE);
                     Communication.getInstance().logout(user);
                     frmMain.dispose();
                 } catch (Exception ex) {
+                    JOptionPane.showMessageDialog(frmMain, "Could not log out user.");
                     ex.printStackTrace();
                 }
             }

@@ -56,7 +56,6 @@ public class FrmWallet extends javax.swing.JFrame {
         ButtonGroup bg2 = new ButtonGroup();
         bg2.add(rbDateSort);
         bg2.add(rbAmountSort);
-        
     }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -84,7 +83,6 @@ public class FrmWallet extends javax.swing.JFrame {
         jFormattedTextFieldDate = new javax.swing.JFormattedTextField();
         jLabel4 = new javax.swing.JLabel();
         rbDateSort = new javax.swing.JRadioButton();
-        jLabel5 = new javax.swing.JLabel();
         rbAmountSort = new javax.swing.JRadioButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -151,8 +149,6 @@ public class FrmWallet extends javax.swing.JFrame {
 
         rbDateSort.setText("Sort by date (newest first)");
 
-        jLabel5.setText("Sort transactions by date:");
-
         rbAmountSort.setText("Sort by amount (descending)");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -199,12 +195,13 @@ public class FrmWallet extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                         .addComponent(lblClock)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(cbFilter)
-                            .addComponent(rbDateSort)
-                            .addComponent(jLabel5)
-                            .addComponent(rbAmountSort)))
-                    .addComponent(CmbCategoryFilter, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createSequentialGroup()
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(rbDateSort)
+                                .addComponent(rbAmountSort))
+                            .addGap(8, 8, 8)))
+                    .addComponent(CmbCategoryFilter, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cbFilter))
                 .addContainerGap(42, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -242,9 +239,7 @@ public class FrmWallet extends javax.swing.JFrame {
                         .addComponent(cbFilter)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(CmbCategoryFilter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(20, 20, 20)
-                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGap(39, 39, 39)
                         .addComponent(rbDateSort)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(rbAmountSort)
@@ -323,7 +318,6 @@ public class FrmWallet extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblAmountError;
     private javax.swing.JLabel lblClock;
@@ -436,6 +430,10 @@ public class FrmWallet extends javax.swing.JFrame {
         } catch (ParseException ex) {
             Logger.getLogger(FrmWallet.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+
+    public void rbShowAllAddActionlistener(ActionListener actionListener) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
     

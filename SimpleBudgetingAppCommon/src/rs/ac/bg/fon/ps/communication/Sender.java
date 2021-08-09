@@ -25,7 +25,7 @@ public class Sender implements Serializable{
 
     public void send(Object object) throws Exception {
         try {
-            ObjectOutputStream out = new ObjectOutputStream(new BufferedOutputStream(socket.getOutputStream()));
+            ObjectOutputStream out = new ObjectOutputStream((socket.getOutputStream()));
             out.writeObject(object);
             out.flush();
         } catch (Exception e) {
