@@ -229,6 +229,11 @@ public class Communication {
             clientRequest.setArgument(deletedTransactions);
             clientRequest.setOperation(Operation.DELETE_TRANSACTIONS); 
             this.sender.send(clientRequest);
+            ServerResponse serverResponse = (ServerResponse) this.receiver.receive();
+            if (serverResponse.getException() != null) {
+                throw serverResponse.getException();
+    
+            }
         } catch (Exception ex) {
             Logger.getLogger(Communication.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -240,6 +245,11 @@ public class Communication {
             clientRequest.setArgument(addedTransactions);
             clientRequest.setOperation(Operation.ADD_TRANSACTIONS); 
             this.sender.send(clientRequest);
+            ServerResponse serverResponse = (ServerResponse) this.receiver.receive();
+            if (serverResponse.getException() != null) {
+                throw serverResponse.getException();
+    
+            }
         } catch (Exception ex) {
             Logger.getLogger(Communication.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -251,6 +261,11 @@ public class Communication {
             clientRequest.setArgument(wallet);
             clientRequest.setOperation(Operation.UPDATE_WALLET);
             this.sender.send(clientRequest);
+            ServerResponse serverResponse = (ServerResponse) this.receiver.receive();
+            if (serverResponse.getException() != null) {
+                throw serverResponse.getException();
+    
+            }
 
         } catch (SocketException se) {
             throw new SocketException("Server disconnected");
@@ -266,6 +281,11 @@ public class Communication {
             clientRequest.setArgument(deletedCategories);
             clientRequest.setOperation(Operation.DELETE_CATEGORIES); 
             this.sender.send(clientRequest);
+            ServerResponse serverResponse = (ServerResponse) this.receiver.receive();
+            if (serverResponse.getException() != null) {
+                throw serverResponse.getException();
+    
+            }
         } catch (Exception ex) {
             Logger.getLogger(Communication.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -277,6 +297,11 @@ public class Communication {
             clientRequest.setArgument(addedCategories);
             clientRequest.setOperation(Operation.SAVE_CATEGORIES); 
             this.sender.send(clientRequest);
+            ServerResponse serverResponse = (ServerResponse) this.receiver.receive();
+            if (serverResponse.getException() != null) {
+                throw serverResponse.getException();
+    
+            }
         } catch (Exception ex) {
             Logger.getLogger(Communication.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -288,6 +313,11 @@ public class Communication {
             clientRequest.setArgument(walletToDelete);
             clientRequest.setOperation(Operation.DELETE_WALLET);
             this.sender.send(clientRequest);
+            ServerResponse serverResponse = (ServerResponse) this.receiver.receive();
+            if (serverResponse.getException() != null) {
+                throw serverResponse.getException();
+    
+            }
         } catch (Exception ex) {
             Logger.getLogger(Communication.class.getName()).log(Level.SEVERE, null, ex);
         }

@@ -51,9 +51,13 @@ public class SignUpController {
                     JOptionPane.showMessageDialog(frmSignUp, "Cannot create account.");
                     return;
                 }
+                try {
                 signUpUser();
-                resetForm();
-                frmSignUp.dispose();
+                }
+                catch (Exception ex) {
+                    JOptionPane.showMessageDialog(frmSignUp, ex);
+                }
+                //resetForm();
             }
 
             private void signUpUser() {
@@ -67,6 +71,7 @@ public class SignUpController {
                     LoginFormController lic = new LoginFormController(new FrmLogin());
                     lic.openForm();
                     JOptionPane.showMessageDialog(frmSignUp, "Account successfully created.");
+                    frmSignUp.dispose();
                 } catch (Exception ex) {
                     JOptionPane.showMessageDialog(frmSignUp, "Cannot save user.\n"+ex.getMessage());
                 }

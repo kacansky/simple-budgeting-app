@@ -1,6 +1,6 @@
 /*
-SQLyog Community v13.1.6 (64 bit)
-MySQL - 10.4.19-MariaDB : Database - simplebudgetingapp
+SQLyog Community v13.1.7 (64 bit)
+MySQL - 10.4.20-MariaDB : Database - simplebudgetingapp
 *********************************************************************
 */
 
@@ -31,6 +31,14 @@ CREATE TABLE `category` (
 
 /*Data for the table `category` */
 
+insert  into `category`(`categoryid`,`name`,`userid`) values 
+(1,'Groceries',0),
+(2,'Gifts',0),
+(3,'Pets',0),
+(4,'Salon',0),
+(5,'Bills',0),
+(6,'Education',0);
+
 /*Table structure for table `currency` */
 
 DROP TABLE IF EXISTS `currency`;
@@ -40,9 +48,14 @@ CREATE TABLE `currency` (
   `name` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
   `symbol` char(1) COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`currencyid`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 /*Data for the table `currency` */
+
+insert  into `currency`(`currencyid`,`name`,`symbol`) values 
+(1,'USD','$'),
+(2,'EURO','€'),
+(3,'YEN','¥');
 
 /*Table structure for table `transaction` */
 
@@ -58,8 +71,8 @@ CREATE TABLE `transaction` (
   PRIMARY KEY (`transactionid`,`walletid`,`categoryid`),
   KEY `categoryid` (`categoryid`),
   KEY `walletid` (`walletid`),
-  CONSTRAINT `transaction_ibfk_1` FOREIGN KEY (`categoryid`) REFERENCES `category` (`categoryid`) ON UPDATE CASCADE,
-  CONSTRAINT `transaction_ibfk_2` FOREIGN KEY (`walletid`) REFERENCES `wallet` (`walletid`) ON DELETE CASCADE
+  CONSTRAINT `transaction_ibfk_2` FOREIGN KEY (`walletid`) REFERENCES `wallet` (`walletid`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `transaction_ibfk_3` FOREIGN KEY (`categoryid`) REFERENCES `category` (`categoryid`) ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 /*Data for the table `transaction` */
@@ -80,8 +93,7 @@ CREATE TABLE `user` (
 /*Data for the table `user` */
 
 insert  into `user`(`userid`,`first_name`,`last_name`,`username`,`password`) values 
-(27,'a','a','a','a'),
-(59,'Dunja','Kacanski','duduche','guguche');
+(0,NULL,'User','','29472934720934720934872093rwejfoieuthnevithnevoiruht');
 
 /*Table structure for table `wallet` */
 
